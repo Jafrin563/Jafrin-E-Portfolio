@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Jafrin Rahman | Academic E-Portfolio</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #2563eb;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary);
+            display: inline-block;
+            padding-bottom: 0.25rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-top: 2rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .profile-img-box {
+            flex-shrink: 0;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            border: 4px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            padding: 1rem;
+        }
+
+        .profile-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content h1 {
+            font-size: 2.25rem;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-tagline {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .badge {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #bfdbfe;
+        }
+
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 1.75rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .edu-item {
+            margin-bottom: 1.25rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--secondary);
+        }
+
+        .edu-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .edu-year {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .edu-degree {
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .edu-inst {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .edu-grade {
+            display: inline-block;
+            margin-top: 0.25rem;
+            background: #f1f5f9;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .course-list {
+            list-style-position: inside;
+            color: var(--text-dark);
+        }
+
+        .course-list li {
+            margin-bottom: 0.4rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+        }
+
+        .project-preview {
+            height: 180px;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-tech {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+        }
+
+        .project-body h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .project-body p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: #ffffff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+        }
+
+        .video-container {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            max-width: 720px;
+            aspect-ratio: 16 / 9;
+            background: #0f172a;
+            color: #f8fafc;
+            margin: 0 auto;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .contact-box {
+            background: var(--primary);
+            color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-item h4 {
+            color: #93c5fd;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item p, .contact-item a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 200;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            max-width: 700px;
+            width: 100%;
+            border-radius: 12px;
+            padding: 2rem;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-weight: bold;
+        }
+
+        .modal-section {
+            margin-top: 1.25rem;
+        }
+
+        .modal-section h4 {
+            color: var(--primary);
+            margin-bottom: 0.35rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem;
+            }
+            .badge-container {
+                justify-content: center;
+            }
+            .resume-grid {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#home" class="logo">Md. Jafrin Rahman</a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#resume">Resume & Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#video">Intro Video</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="hero">
+            <div class="profile-img-box">
+                <!-- Replace the span below with: <img src="photo.jpg" alt="Md. Jafrin Rahman"> -->
+                <span>[Insert Your Formal Profile Photo Here]</span>
+            </div>
+            <div class="hero-content">
+                <h1>Md. Jafrin Rahman</h1>
+                <div class="hero-tagline">B.Sc. in Computer Science & Engineering (CSE) Student | AIUB</div>
+                <p>
+                    I am a second-year Computer Science and Engineering student at American International University-Bangladesh (AIUB) with a strong science background and a genuine interest in software development, artificial intelligence, and academic teaching.
+                </p>
+                <p>
+                    Through my academic journey, I have built strong analytical, problem-solving, and communication skills. My career goal is to contribute to meaningful technology projects while sharing knowledge to help fellow students master technical concepts.
+                </p>
+                <div class="badge-container">
+                    <span class="badge">CGPA: 3.42</span>
+                    <span class="badge">SSC GPA: 5.00</span>
+                    <span class="badge">HSC GPA: 4.58</span>
+                    <span class="badge">Software Development & AI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume">
+        <h2 class="section-title">Resume & Academic Profile</h2>
+        <p class="section-subtitle">Education, relevant coursework, technical capabilities, and transferable skills.</p>
+        <div class="resume-grid">
+            <div class="card">
+                <h3>Academic Background</h3>
+                <div class="edu-item">
+                    <div class="edu-year">Present (2nd Year)</div>
+                    <div class="edu-degree">B.Sc. in Computer Science and Engineering (CSE)</div>
+                    <div class="edu-inst">American International University-Bangladesh (AIUB)</div>
+                    <span class="edu-grade">CGPA: 3.42</span>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-year">2022 – 2023</div>
+                    <div class="edu-degree">Higher Secondary Certificate (HSC)</div>
+                    <div class="edu-inst">Mohammadpur Preparatory School and College</div>
+                    <span class="edu-grade">GPA: 4.58</span>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-year">2019 – 2021</div>
+                    <div class="edu-degree">Secondary School Certificate (SSC)</div>
+                    <div class="edu-inst">Mohammadpur Preparatory School and College</div>
+                    <span class="edu-grade">GPA: 5.00</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Technical & Transferable Skills</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Java (GUI Development)</span>
+                    <span class="skill-tag">C# (C-Sharp)</span>
+                    <span class="skill-tag">Object-Oriented Programming (OOP)</span>
+                    <span class="skill-tag">Computer Operation</span>
+                    <span class="skill-tag">MS Word & Excel</span>
+                    <span class="skill-tag">Teamwork & Leadership</span>
+                    <span class="skill-tag">Time Management</span>
+                    <span class="skill-tag">Email & Academic Communication</span>
+                </div>
+
+                <h3>Relevant Academic Courses</h3>
+                <ul class="course-list">
+                    <li>Object-Oriented Programming 1 (Java)</li>
+                    <li>Object-Oriented Programming 2 (C#)</li>
+                    <li>Data Structures & Algorithms</li>
+                    <li>Introduction to Programming & Discrete Mathematics</li>
+                </ul>
+
+                <h3 style="margin-top: 1.25rem;">Languages & Interests</h3>
+                <p style="font-size: 0.95rem; color: var(--text-muted);">
+                    <strong>Languages:</strong> Bengali (Fluent), English (Intermediate), Hindi (Basic)<br>
+                    <strong>Hobbies:</strong> Reading books, Gaming, Watching anime
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Sample Academic Projects</h2>
+        <p class="section-subtitle">Click on any project to inspect the problem-solving approach, architecture, and my specific role.</p>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-preview">
+                    [Project A Visual: Java GUI Calculator Interface Screenshot]
+                </div>
+                <div class="project-body">
+                    <div class="project-tech">Java • Swing / AWT • Event Handling</div>
+                    <h3>Project A: GUI Calculator Application</h3>
+                    <p>
+                        A functional desktop calculator built in Java capable of performing real-time arithmetic operations with responsive event handling and clean UI layout.
+                    </p>
+                    <button class="btn" onclick="openModal('projectA')">View Thought Process & Details</button>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-preview">
+                    [Project B Visual: C# OOP Class Diagram & Application Output]
+                </div>
+                <div class="project-body">
+                    <div class="project-tech">C# (C-Sharp) • OOP Principles</div>
+                    <h3>Project B: C# Object-Oriented Software Project</h3>
+                    <p>
+                        Developed during my C# coursework to apply core Object-Oriented Programming concepts, strengthening logical thinking and structured software design.
+                    </p>
+                    <button class="btn" onclick="openModal('projectB')">View Thought Process & Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="video">
+        <h2 class="section-title">Introduction Video</h2>
+        <p class="section-subtitle">A brief video overview of my academic background, skills, and future aspirations.</p>
+        <div class="video-container">
+            <div class="video-placeholder">
+                <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">[Embed Your 1–2 Minute Introduction Video Here]</p>
+                <p style="font-size: 0.9rem; color: #94a3b8; max-width: 500px;">
+                    Tip: Record a clear 90-second video introducing yourself as a 2nd-year CSE student at AIUB, highlighting your Java & C# projects and your goal to grow in software engineering and teaching.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Contact Information</h2>
+        <p class="section-subtitle">Feel free to reach out for academic opportunities, collaborations, or project inquiries.</p>
+        <div class="contact-box">
+            <div class="contact-item">
+                <h4>University Email</h4>
+                <a href="mailto:25-60938-1@student.aiub.edu">25-60938-1@student.aiub.edu</a>
+            </div>
+            <div class="contact-item">
+                <h4>Personal Email</h4>
+                <a href="mailto:jafrin39@gmail.com">jafrin39@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <h4>Location</h4>
+                <p>Mohammadpur, Dhaka, Bangladesh</p>
+            </div>
+            <div class="contact-item">
+                <h4>Institution</h4>
+                <p>American International University-Bangladesh (AIUB)</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Md. Jafrin Rahman | Academic E-Portfolio (CSE, AIUB)</p>
+    </footer>
+
+    <div id="projectModal" class="modal" onclick="closeModalOnOutside(event)">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        const projectDetails = {
+            projectA: {
+                title: "Project A: Java GUI Calculator Application",
+                tech: "Java, Swing/AWT, Event-Driven Programming",
+                role: "Sole Developer — Responsible for UI architecture, mathematical expression parsing, and testing.",
+                process: "1. Designed a clean, intuitive button grid layout so users can easily distinguish digits from operators.\n2. Implemented ActionListener interfaces for responsive real-time event handling.\n3. Added input validation and error handling (such as division-by-zero checks) to prevent runtime crashes.",
+                results: "Successfully evaluated multi-step real-time arithmetic expressions with zero UI lag during testing."
+            },
+            projectB: {
+                title: "Project B: C# Object-Oriented Programming Project",
+                tech: "C# (C-Sharp), .NET, OOP (Encapsulation, Inheritance, Polymorphism)",
+                role: "Developer — Designed class hierarchies, implemented core logic, and debugged edge cases.",
+                process: "1. Analyzed the problem statement and broke entities down into modular classes.\n2. Applied encapsulation to protect data integrity and inheritance to eliminate duplicate code.\n3. Tested all user workflows to ensure reliable logical execution.",
+                results: "Demonstrated clean, maintainable object-oriented code and improved practical problem-solving skills."
+            }
+        };
+
+        function openModal(projectKey) {
+            const data = projectDetails[projectKey];
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `
+                <h2 style="color: var(--primary); margin-bottom: 0.25rem;">${data.title}</h2>
+                <p style="color: var(--secondary); font-weight: 600; font-size: 0.9rem;">${data.tech}</p>
+                
+                <div class="modal-section">
+                    <h4>My Role & Responsibilities</h4>
+                    <p>${data.role}</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Thought Process & Decision-Making</h4>
+                    <p style="white-space: pre-line;">${data.process}</p>
+                </div>
+                <div class="modal-section">
+                    <h4>Testing & Outcomes</h4>
+                    <p>${data.results}</p>
+                </div>
+                <div class="modal-section" style="background: #f1f5f9; padding: 1rem; border-radius: 6px;">
+                    <h4>Visual Artifacts Placeholder</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">[Insert screenshots of your UI, code snippets, or flowchart diagrams here before final submission]</p>
+                </div>
+            `;
+            document.getElementById('projectModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').style.display = 'none';
+        }
+
+        function closeModalOnOutside(event) {
+            if (event.target.id === 'projectModal') {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
